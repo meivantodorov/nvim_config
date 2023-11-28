@@ -7,11 +7,10 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
   use({
 	  'rose-pine/neovim',
@@ -52,8 +51,8 @@ return require('packer').startup(function(use)
 	  requires = {
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},
-		  --{'williamboman/mason.nvim'},
-		  --{'williamboman/mason-lspconfig.nvim'},
+		  {'williamboman/mason.nvim'},
+		  {'williamboman/mason-lspconfig.nvim'},
 
 		  -- Autocompletion
 		  {'hrsh7th/nvim-cmp'},
@@ -76,6 +75,6 @@ return require('packer').startup(function(use)
   --use("github/copilot.vim")
   --use("eandrju/cellular-automaton.nvim")
   --use("laytan/cloak.nvim")
-
+  use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 end)
 
