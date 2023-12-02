@@ -48,9 +48,11 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+vim.keymap.set("t", "<C-^>", "<cmd>buffer#<CR>")
+-- vim.keymap.set("t", "<C-^>", "C-\\ C-n")
 -- Ivan experimental
-vim.keymap.set("n", "u", "k")
-vim.keymap.set("n", "k", "l")
+-- vim.keymap.set("n", "u", "k")
+-- vim.keymap.set("n", "k", "l")
 vim.keymap.set("n", "<C-_>", function() 
     vim.cmd("undo")
 end)
